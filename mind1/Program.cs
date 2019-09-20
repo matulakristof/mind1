@@ -8,6 +8,7 @@ namespace mind1
 {
     class Program
     {
+        static Random rnd = new Random();
         static void Main(string[] args)
         {
             Console.WriteLine("Szia hogy hívnak?");
@@ -17,12 +18,22 @@ namespace mind1
             var valasz = Console.ReadLine();
             if (valasz.ToLower() == "igen")
             {
-                Console.WriteLine("Akkor mi nagyon jóü barátok leszünk.");
+                Console.WriteLine("Akkor mi nagyon jó barátok leszünk!");
+                Console.WriteLine(":)");
             }
             else
             {
                 Console.WriteLine(":(");
                 Console.WriteLine("Akkor b@zd meg!");
+            }
+            Console.WriteLine("Hallod, nesze itt van 100 csillag!");
+            for (int i = 0; i < 100; i++)
+            {
+                Console.SetCursorPosition(
+                    rnd.Next(Console.WindowWidth),
+                    rnd.Next(Console.WindowHeight));
+                Console.ForegroundColor = (ConsoleColor)rnd.Next(1, 16);
+                Console.Write("*");
             }
             Console.ReadKey();
         }
